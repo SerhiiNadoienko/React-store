@@ -24,6 +24,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 6px;
+  transition: 0.1s all;
 }
 
 .images-list {
@@ -87,6 +88,7 @@
   border-radius: 8px;
   background: var(--bg);
   cursor: pointer;
+  transition: 0.3s all;
 }
 
 .size:hover,
@@ -110,6 +112,7 @@
 .favourite {
   background: var(--dark-sea);
   border-radius: 6px;
+  transition: 0.5s all;
 }
 
 .favourite:hover {
@@ -125,7 +128,9 @@
   color: var(--dark-sea);
   margin-top: auto;
 }
-
+.add {
+  transition: 0.5s all;
+}
 .add:disabled {
   cursor: not-allowed;
   background: var(--bg);
