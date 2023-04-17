@@ -167,3 +167,8 @@
   height: 50px;
   width: 50px;
 }
+.modal-open {
+  overflow: hidden;
+  height: 100%;
+  margin-right: 18px;
+}
