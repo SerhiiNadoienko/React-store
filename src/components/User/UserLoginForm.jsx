@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import s from '../../styles/User.module.css';
 import { useDispatch } from 'react-redux';
-import { createUser } from '../../features/user/userSlice';
+import { loginUser } from '../../features/user/userSlice';
 const UserSignupForm = ({ closeForm, toggleCurrentFormType }) => {
   const dispatch = useDispatch();
   const [values, setValues] = useState({
-    name: '',
     email: '',
     password: '',
-    avatar: '',
   });
   const handleChange = ({ target: { value, name } }) => {
     setValues({ ...values, [name]: value });
@@ -20,7 +18,7 @@ const UserSignupForm = ({ closeForm, toggleCurrentFormType }) => {
 
     if (!isNotEmpty) return;
 
-    dispatch(createUser(values));
+    dispatch(loginUser(values));
     closeForm();
   };
 
@@ -31,7 +29,7 @@ const UserSignupForm = ({ closeForm, toggleCurrentFormType }) => {
           <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#close`} />
         </svg>
       </div>
-      <div className={s.title}>Sign Up</div>
+      <div className={s.title}>Login</div>
       <form className={s.form} onSubmit={handleSubmit}>
         <div className={s.group}>
           <input
@@ -46,17 +44,6 @@ const UserSignupForm = ({ closeForm, toggleCurrentFormType }) => {
         </div>
 
         <div className={s.group}>
-          <input
-            type="name"
-            placeholder="Your name"
-            name="name"
-            value={values.name}
-            autoComplete="off"
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className={s.group}>
           {' '}
           <input
             type="password"
@@ -68,22 +55,12 @@ const UserSignupForm = ({ closeForm, toggleCurrentFormType }) => {
             required
           />
         </div>
-        <div className={s.group}>
-          <input
-            type="avatar"
-            placeholder="Your avatar"
-            name="avatar"
-            value={values.avatar}
-            autoComplete="off"
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className={s.link} onClick={() => toggleCurrentFormType('login')}>
-          I already have an account
+
+        <div className={s.link} onClick={() => toggleCurrentFormType('signup')}>
+          Create an account
         </div>
         <button type="submit" className={s.submit}>
-          Create an account
+          Login
         </button>
       </form>
     </div>
@@ -95,6 +72,6 @@ export default UserSignupForm;
 /* 
 ololosha@gmail.com 
 ololosha
-ololosha229
+ololosha229 
 https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png
 */
